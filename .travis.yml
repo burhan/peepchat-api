@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: BHUmOmgQylJUEjkwPA6a5HlfWPSWWEPE0KMwkTI/RudD4nnu/r/i9/gBwFSnns33mTTb25/KXH3kz0mTRg6sdbwqSkcS/NzgdYyE7zNxIStK9haTYfKHpC9K2VBUiPm9IZZEohNGOdj2h8SepsMs1zB00nICxjqDxhSFwD6jcYynhbW1VbPIkKAjHLiMMtFROLYDzLBCTDtrYShC1S8+5NjhOg7AakPeMDQuZYxg7CuUelW2hDotuXYuCklAzFWHP+PofAI2Cfxcp72DzvTyN/mX0kQJUZGPk9SwsNI7067GTh4fyMF9iLTz+HzgFX+NlgiKHAviFL/4fQ8DBwz5JkdmDuKaV+qeFxDT3u1kgo7X/cBtAWvvTrwg0cbTBidMP8SThF+zKf1e1lZi42fntIN4Q5SdrS5A9cpA8xxZW/JMUE7f8z2ByI8JZP/uryO6AJxiiW/qHLaXrvFf8j8YIcIFYVu4bV9lhPoB7B/TaGMBtz2kNCMlXQYwLBiMX0DxfwuWfiMrIjjyIsZWZ4Vq7O8Md2+B9X/qZFNb8E/d1/jzs9jz4eMjk8LWPumMayTV+SWkMIhzthVPKzszpApYtplzLKSNz42kN2+gjrkt4GCc9t+bKjyUtt1tZveK5HFVc8oa9peqmR/tkzDXY6eabTgH1+CEnYDiwANMmnXYJ9Q=
+  app: infinite-forest-62920
+  on:
+    repo: burhan/peepchat-api
